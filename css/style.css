@@ -160,6 +160,16 @@ img {
   padding: 10px;
 }
 
+.project-entry img{
+  max-width: 50vw;
+}
+
+@media (max-width: 550px) {
+  .project-entry img{
+    max-width: 80vw;
+  }
+}
+
 span {
   padding: 5px;
 }
