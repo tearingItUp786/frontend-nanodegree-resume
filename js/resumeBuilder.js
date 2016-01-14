@@ -5,18 +5,19 @@ bio, education, job, project
 
 var bio = {
   "name": "Taranveer Bains",
-  "role": "Web Developer/BBA Candidate",
+  "role": "Web Developer",
   "contacts": {
-    "mobile": "Not Available",
-    "email": "taranveer_4@hotmail.com",
+    "mobile": "778.320.0745",
+    "email": "taranveer_4 at hotmail.com",
     "github": "tearingItUp786",
+    "blog": "http://taran.bus.sfu.ca/",
     "location": "North Delta, British Columbia"
   },
-  "welcomeMessage":"Taran Bains -- tearing it up since 93'",
-  "skills":[
-    "PHP", "CSS", "HTML", "JavaScript", "Git", "Teamwork"
+  "welcomeMessage": "Taran Bains -- tearing it up since 93'",
+  "skills": [
+    "PHP", "CSS", "HTML", "JavaScript", "Git"
   ],
-  "biopic": 
+  "biopic": "images/carmz_and_me.jpg"
 }
 
 var education = {
@@ -54,5 +55,60 @@ var job = {
     "location": "8888 University Dr, Burnaby, BC V5A 1S6",
     "date": "September 2014 - May 2015",
     "description": "Executed several database administration tasks by utilzing MySQL queries and the phpMyAdmin interface. Aided in constructing a web application that would track the work hours of student hires. Met with several key stakeholders to gather requirements and determine business needs and project objectives."
+  }, {
+    "employer": "Beedie School of Business",
+    "title": "Business Analyst & Computer Technician",
+    "location": "8888 University Dr, Burnaby, BC V5A 1S6",
+    "date": "September 2014 - May 2015",
+    "description": "Executed several database administration tasks by utilzing MySQL queries and the phpMyAdmin interface. Aided in constructing a web application that would track the work hours of student hires. Met with several key stakeholders to gather requirements and determine business needs and project objectives."
   }]
 }
+
+var project = {
+  "projects": [{
+    "title": "Taranveer's Blog / Website",
+    "date": "January 2015 - February 2015",
+    "description": "Developed a website using PHP, MySQL JavaScript, HTML, and CSS Utilized web APIs, such as bootstrap and jQuery.Created and managed content for the blog. Utilized Git and Git flow to manage my testing and production hosts",
+    "images": [
+      "images/home_clear.jpg", "images/welcome_intro_clear.jpg"
+    ]
+  }, {
+    "title": "25toLife",
+    "date": "September 2015 - October 2015",
+    "description": "First front end web development project. Utilized the bootstrap framework to create the layout",
+    "images": [
+      "images/home_clear.jpg", "welcome_intro_clear.jpg"
+    ]
+  }]
+}
+
+bio.display = function() {
+  $("#header").prepend(HTMLheaderRole.replace("%data%", bio.role));
+  $("#header").prepend(HTMLheaderName.replace("%data%", bio.name));
+  $("#topContacts").append(HTMLmobile.replace("%data%", bio.contacts["mobile"]));
+  $("#topContacts").append(HTMLemail.replace("%data%", bio.contacts["email"]));
+  $("#topContacts").append(HTMLgithub.replace("%data%", bio.contacts["github"]));
+  $("#topContacts").append(HTMLlocation.replace("%data%", bio.contacts["location"]));
+
+  $("#header").append(HTMLbioPic.replace("%data%", bio.biopic));
+  $("#header").append(HTMLwelcomeMsg.replace("%data%", bio.welcomeMessage));
+
+  $("#header").append(HTMLskillsStart);
+  for (skill in bio.skills) {
+    $("#skills").append(HTMLskills.replace("%data%", bio.skills[skill]));
+  }
+};
+
+bio.display();
+
+job.display = function() {
+  for (j in job.jobs) {
+    $("#workExperience").append(HTMLworkStart);
+    var fullTitle = HTMLworkEmployer.replace("%data%", job.jobs[j].employer) + HTMLworkTitle.replace("%data%", job.jobs[j].title);
+    $(".work-entry:last").append(fullTitle);
+    $(".work-entry:last").append(HTMLworkDates.replace("%data%", job.jobs[j].date));
+    $(".work-entry:last").append(HTMLworkDescription.replace("%data%", job.jobs[j].description));
+  }
+}
+
+job.display();
