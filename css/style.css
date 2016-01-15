@@ -1,9 +1,16 @@
 body, div, ul, li, p, h1, h2, h3, h4, h5, h6 {
   padding: 0;
   margin: 0;
-  font-family: "Roboto", sans-serif;
+}
+body, div, ul, li, p {
+  font-family: 'Lato', sans-serif;
+  font-weight: 500;
   font-size: 16px;
-  line-height: 1.4em;
+}
+h1, h2, h3, h4, h5, h6 {
+  font-size: 15px;
+  font-family: 'Lustria', serif;
+  ;
 }
 .clear-fix {
   overflow: auto;
@@ -54,7 +61,7 @@ h2, h3, h4, h5 {
   float: right;
 }
 p {
-  font-size: 14px;
+  font-size: 15px;
   color: #333;
   line-height: 21px;
 }
@@ -63,6 +70,7 @@ a {
   text-decoration: none;
   margin-top: 10px;
   display: block;
+  font-size: 17px;
 }
 .welcome-message {
   font-style: italic;

@@ -11,7 +11,7 @@ var bio = {
     "email": "taranveer_4 at hotmail.com",
     "github": "tearingItUp786",
     "blog": "http://taran.bus.sfu.ca/",
-    "location": "North Delta, British Columbia"
+    "location": "North Delta, BC"
   },
   "welcomeMessage": "Taran Bains -- tearing it up since 93'",
   "skills": [
@@ -64,20 +64,21 @@ var job = {
   }]
 }
 
+
 var project = {
   "projects": [{
     "title": "Taranveer's Blog / Website",
     "date": "January 2015 - February 2015",
     "description": "Developed a website using PHP, MySQL JavaScript, HTML, and CSS Utilized web APIs, such as bootstrap and jQuery.Created and managed content for the blog. Utilized Git and Git flow to manage my testing and production hosts",
     "images": [
-      "images/home_clear.jpg", "images/welcome_intro_clear.jpg"
+      "images/home_clear.jpg"
     ]
   }, {
     "title": "25toLife",
     "date": "September 2015 - October 2015",
     "description": "First front end web development project. Utilized the bootstrap framework to create the layout",
     "images": [
-      "images/home_clear.jpg", "welcome_intro_clear.jpg"
+      "images/25toLife.jpg"
     ]
   }]
 }
@@ -112,3 +113,41 @@ job.display = function() {
 }
 
 job.display();
+
+project.display = function() {
+  for (proj in project.projects) {
+    $("#projects").append(HTMLprojectStart);
+    $(".project-entry:last").append(HTMLprojectTitle.replace("%data%", project.projects[proj].title));
+    $(".project-entry:last").append(HTMLprojectDates.replace("%data%", project.projects[proj].date));
+    $(".project-entry:last").append(HTMLprojectDescription.replace("%data%", project.projects[proj].description));
+    for (i in project.projects[proj].images) {
+      $(".project-entry:last").append(HTMLprojectImage.replace("%data%", project.projects[proj].images[i]));
+    }
+  }
+}
+
+project.display();
+
+education.display = function() {
+  for (school in education.schools) {
+    $("#education").append(HTMLschoolStart);
+    $(".education-entry:last").append(HTMLschoolName.replace("%data%", education.schools[school].name) + HTMLschoolDegree.replace("%data%", education.schools[school].degree));
+    $(".education-entry:last").append(HTMLschoolDates.replace("%data%", education.schools[school].date));
+    $(".education-entry:last").append(HTMLschoolLocation.replace("%data%", education.schools[school].location));
+    $(".education-entry:last").append(HTMLschoolMajor.replace("%data%", education.schools[school].majors));
+  }
+
+  $("#education").append(HTMLonlineClasses);
+  for (online in education.onlineCourses) {
+    $("#education").append(HTMLschoolStart);
+
+    HTMLonlineTitle = HTMLonlineTitle.replace(/href="#"/g, "href=" + education.onlineCourses[online].url);
+    var fullTitle = HTMLonlineTitle.replace("%data%", education.onlineCourses[online].title) + HTMLonlineSchool.replace("%data%", education.onlineCourses[online].school);
+    console.log(fullTitle);
+    $(".education-entry:last a").attr("href", education.onlineCourses[online].url);
+    $(".education-entry:last").append(fullTitle);
+    $(".education-entry:last").append(HTMLonlineDates.replace("%data%", education.onlineCourses[online].date));
+  }
+}
+
+education.display();
