@@ -5,7 +5,7 @@ body, div, ul, li, p, h1, h2, h3, h4, h5, h6 {
 body, div, ul, li, p {
   font-family: 'Lato', sans-serif;
   font-weight: 500;
-  font-size: 16px;
+  font-size: 17px;
 }
 h1, h2, h3, h4, h5, h6 {
   font-size: 15px;
@@ -20,7 +20,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 h1 {
   font-size: 40px;
-  color: #f5a623;
+  color: #049CD4;
   line-height: 48px;
   display: inline;
 }
@@ -70,7 +70,8 @@ a {
   text-decoration: none;
   margin-top: 10px;
   display: block;
-  font-size: 17px;
+  font-size: 18px;
+  font-variant: small-caps;
 }
 .welcome-message {
   font-style: italic;
@@ -80,7 +81,7 @@ a {
   padding: 0px;
 }
 #skills-h3 {
-  color: #f5ae23;
+  color: #0F9CD0;
   display: none;
 }
 #skills {
@@ -94,10 +95,10 @@ a {
   padding: 0;
 }
 .orange {
-  background-color: #f5ae23;
+  background-color: #0F9CD0;
 }
 .orange-text {
-  color: #f5ae23;
+  color: #0F9CD0;
 }
 .white-text {
   font-weight: bold;
@@ -154,6 +155,7 @@ span {
 }
 #lets-connect {
   text-align: center;
+  padding: 2.5% 5%;
 }
 
 /* Media queries to handle various device widths */
